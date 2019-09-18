@@ -49,7 +49,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun fillUserHeaderNavMenu(){
-        System.out.println("Entrou 1  ")
         System.out.println("USeer image: "+user.image)
         System.out.println(user.name)
 

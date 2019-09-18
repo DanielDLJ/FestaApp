@@ -44,4 +44,7 @@ dependencies {
 
     /* RoundedImageView API */
     implementation 'com.makeramen:roundedimageview:2.3.0'
+
+    /* Picasso API - Carregamento e cache de imagens */
+    implementation 'com.squareup.picasso:picasso:2.71828'
 }
