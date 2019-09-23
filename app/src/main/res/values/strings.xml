@@ -9,11 +9,14 @@
 
     <string name="action_settings">Settings</string>
 
+
     <string name="tx_login">Login</string>
     <string name="tx_or">ou</string>
     <string name="tx_me_sign_up">me Cadastrar</string>
     <string name="tx_conected_as">Conectado como:</string>
 
+
+    <!-- Menu -->
     <string name="menu_dashboard">Dashboard</string>
     <string name="menu_expenses">Gastos</string>
     <string name="menu_invite">Convites</string>
@@ -23,4 +26,25 @@
     <string name="menu_all_party">Todas Festas</string>
     <string name="menu_settings">Minhas configurações</string>
     <string name="menu_sign_out">Sair</string>
+
+
+
+    <!-- FragmentProfile -->
+    <string name="title_activity_config_profile">Perfil</string>
+
+    <string name="info_profile_photo">Toque na foto para abrir a galeria ou fotografia.</string>
+
+    <string name="name_label">Nome:</string>
+    <string name="config_profile">Atualizar perfil</string>
+    <string name="config_profile_going">Atualizando&#8230;</string>
+    <string name="invalid_name">Nome inválido.</string>
+    <string name="invalid_config_profile">Um nome válido deve ser fornecido</string>
+
+    <!-- Image Picker API - Adição e sobreposição de String -->
+    <string name="imagepicker_msg_no_images">Não há imagens na galeria.</string>
+    <string name="imagepicker_gallery_activity">Galeria</string>
+    <string name="imagepicker_cam_photos_activity">Fotos câmera BlueShoes</string>
+    <string name="imagepicker_selection_limit">Apenas uma imagem pode ser selecionada.</string>
+    <string name="nick_name_label">Apelido:</string>
+
 </resources>

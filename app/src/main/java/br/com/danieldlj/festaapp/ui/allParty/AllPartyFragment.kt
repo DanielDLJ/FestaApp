@@ -35,7 +35,7 @@ class AllPartyFragment : Fragment() {
             RecyclerView.VERTICAL,
             false
         )
-        recyclerView.layoutManager = layoutManager
+        recyclerView.layoutManager = layoutManager as RecyclerView.LayoutManager?
 
         val adapter = AllPartyListAdapter( AllShoesDataBase.getItems() )
         recyclerView.adapter = adapter
