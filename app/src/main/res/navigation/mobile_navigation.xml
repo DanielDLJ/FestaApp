@@ -36,6 +36,12 @@
         tools:layout="@layout/fragment_post" />
 
     <fragment
+        android:id="@+id/nav_list_rep"
+        android:name="br.com.danieldlj.festaapp.ui.list_rep.ListRepFragment"
+        android:label="@string/menu_list_rep"
+        tools:layout="@layout/fragment_list_rep" />
+
+    <fragment
         android:id="@+id/nav_all_party"
         android:name="br.com.danieldlj.festaapp.ui.allParty.AllPartyFragment"
         android:label="@string/menu_all_party"

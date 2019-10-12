@@ -4,6 +4,7 @@
     <item name="ic_menu_invite" type="drawable">@drawable/ic_whatshot_black_24dp</item>
     <item name="ic_menu_rotation" type="drawable">@drawable/ic_perm_contact_calendar_black_24dp</item>
     <item name="ic_menu_post" type="drawable">@drawable/ic_menu_share</item>
+    <item name="ic_menu_list_rep" type="drawable">@drawable/ic_format_list_numbered_black_24dp</item>
 
     <item name="ic_menu_all_party" type="drawable">@drawable/ic_format_list_numbered_black_24dp</item>
     <item name="ic_menu_settings" type="drawable">@drawable/ic_settings_black_24dp</item>
