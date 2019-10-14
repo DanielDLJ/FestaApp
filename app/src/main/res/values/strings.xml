@@ -8,6 +8,7 @@
     <string name="nav_header_desc">Navigation header</string>
 
     <string name="action_settings">Settings</string>
+    <string name="img_description">This is an image</string>
 
 
     <string name="tx_login">Login</string>
@@ -47,5 +48,6 @@
     <string name="imagepicker_cam_photos_activity">Fotos câmera BlueShoes</string>
     <string name="imagepicker_selection_limit">Apenas uma imagem pode ser selecionada.</string>
     <string name="nick_name_label">Apelido:</string>
+
 
 </resources>
