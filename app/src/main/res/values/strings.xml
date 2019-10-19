@@ -18,17 +18,30 @@
 
 
     <!-- Menu -->
-    <string name="menu_dashboard">Dashboard</string>
-    <string name="menu_expenses">Gastos</string>
-    <string name="menu_invite">Convites</string>
-    <string name="menu_rotation">Escala</string>
-    <string name="menu_post">Posts</string>
-    <string name="menu_list_rep">Lista Rep</string>
+    <string name="item_dashboard">Dashboard</string>
+    <string name="item_expenses">Gastos</string>
+    <string name="item_invite">Convites</string>
+    <string name="item_rotation">Escala</string>
+    <string name="item_post">Posts</string>
+    <string name="item_list_rep">Lista Rep</string>
 
-    <string name="menu_all_party">Todas Festas</string>
-    <string name="menu_settings">Minhas configurações</string>
-    <string name="menu_sign_out">Sair</string>
+    <string name="item_all_party">Todas Festas</string>
+    <string name="item_settings">Minhas configurações</string>
+    <string name="item_sign_out">Sair</string>
 
+
+
+
+    <!-- AccountSettingsActivity -->
+    <string name="title_activity_account_settings">Configurações de conta</string>
+
+    <string name="connected">Conectado:</string>
+
+    <string name="setting_item_profile">Perfil</string>
+    <string name="setting_item_profile_desc">Para atualização de nome e foto de perfil.</string>
+
+    <string name="setting_item_login">Conexão (login)</string>
+    <string name="setting_item_login_desc">Para atualização de e-mail ou senha de acesso.</string>
 
 
     <!-- FragmentProfile -->
@@ -48,6 +61,72 @@
     <string name="imagepicker_cam_photos_activity">Fotos câmera BlueShoes</string>
     <string name="imagepicker_selection_limit">Apenas uma imagem pode ser selecionada.</string>
     <string name="nick_name_label">Apelido:</string>
+
+
+    <!-- LoginActivity -->
+    <string name="title_activity_login">Login</string>
+
+    <string name="invalid_email">Forneça um e-mail válido.</string>
+    <string name="invalid_password">Mínimo de 6 caracteres.</string>
+    <string name="hint_email">E-mail</string>
+    <string name="hint_password">Senha</string>
+    <string name="forgot_my_password">Esqueci minha senha</string>
+    <string name="sign_in">Entrar</string>
+    <string name="sign_in_going">Entrando&#8230;</string>
+    <string name="or">ou</string>
+    <string name="create_my_account">Criar minha conta</string>
+    <string name="privacy_policy">Políticas de privacidade</string>
+    <string name="invalid_login">Dados de login inválidos.</string>
+
+    <!-- ConnectDataActivity -->
+    <string name="title_activity_config_connection_data">Conexão (login)</string>
+
+    <!-- FormEmailFragment -->
+    <string name="config_connection_data_tab_email">E-MAIL</string>
+
+    <string name="hint_current_email">E-mail atual</string>
+    <string name="hint_new_email">Novo e-mail</string>
+    <string name="hint_new_email_confirm">Confirmar novo e-mail</string>
+
+    <string name="invalid_confirmed_email">Confirme o e-mail informado no campo acima.</string>
+
+    <string name="update_email_login">Atualizar e-mail de login</string>
+    <string name="update_email_login_going">Atualizando&#8230;</string>
+
+
+
+    <!-- FormPasswordFragment -->
+    <string name="config_connection_data_tab_password">SENHA</string>
+
+    <string name="hint_new_password">Nova senha</string>
+    <string name="hint_new_password_confirm">Confirmar nova senha</string>
+
+    <string name="update_password">Atualizar senha</string>
+    <string name="update_password_going">Atualizando&#8230;</string>
+
+
+
+    <!-- Dialog Password -->
+    <string name="dialog_password_info">Entre com a senha para poder prosseguir:</string>
+    <string name="dialog_password_hint">Senha</string>
+    <string name="dialog_password_go">PROSSEGUIR</string>
+    <string name="dialog_password_cancel">CANCELAR</string>
+
+
+
+    <!-- SignUpActivity -->
+    <string name="title_activity_sign_up">Cadastro</string>
+
+    <string name="hint_email_to_login">E-mail (para login)</string>
+    <string name="hint_confirm_password">Confirmar senha</string>
+    <string name="do_login">Realizar login</string>
+    <string name="sign_up">Cadastrar</string>
+    <string name="sign_up_going">Cadastrando&#8230;</string>
+    <string name="invalid_sign_up_email">E-mail já cadastrado.</string>
+    <string name="invalid_confirmed_password">Confirme a senha informada no campo acima.</string>
+
+
+
 
 
 </resources>

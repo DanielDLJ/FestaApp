@@ -3,7 +3,7 @@ package br.com.danieldlj.festaapp.data
 import br.com.danieldlj.festaapp.domain.Party
 
 
-class AllShoesDataBase {
+class AllPartyDataBase {
 
     companion object{
 
