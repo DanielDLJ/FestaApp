@@ -8,16 +8,39 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import br.com.danieldlj.festaapp.MainActivity
 import br.com.danieldlj.festaapp.R
+import br.com.danieldlj.festaapp.data.ListRepDataBase
+import kotlinx.android.synthetic.main.fragment_list_rep.*
 
 
 class ListRepFragment : Fragment() {
 
-    private lateinit var listRepViewModel: ListRepViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        listRepViewModel = ViewModelProviders.of(this).get(ListRepViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_list_rep, container, false)
-        return root
+
+        return inflater
+            .inflate(R.layout.fragment_list_rep, container, false)
+    }
+
+    override fun onActivityCreated( savedInstanceState: Bundle? ) {
+        super.onActivityCreated( savedInstanceState )
+
+        initItems()
+    }
+
+    private fun initItems(){
+
+        val adapter = context?.let { RepublicAdapter(it, ListRepDataBase.getItems()) }
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(context)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as MainActivity).updateToolbarTitleInFragment( R.string.title_frag_list_rep )
     }
 }

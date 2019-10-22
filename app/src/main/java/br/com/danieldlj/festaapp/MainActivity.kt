@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.danieldlj.festaapp.data.NavMenuItemsDataBase
 import br.com.danieldlj.festaapp.domain.NavMenuItem
 import br.com.danieldlj.festaapp.domain.User
-import br.com.danieldlj.festaapp.ui.NavMenuItemsAdapter
+import br.com.danieldlj.festaapp.uitl.NavMenuItemsAdapter
 import br.com.danieldlj.festaapp.ui.allParty.AllPartyActivity
 import br.com.danieldlj.festaapp.ui.config.AccountSettingsActivity
 import br.com.danieldlj.festaapp.ui.dashboard.DashboardFragment
@@ -132,7 +132,7 @@ class MainActivity : AppCompatActivity(){
     private fun initNavMenuItems(){
         rv_menu_items.setHasFixedSize( false )
         rv_menu_items.layoutManager = LinearLayoutManager(this)
-        rv_menu_items.adapter = NavMenuItemsAdapter( navMenuItems )
+        rv_menu_items.adapter = NavMenuItemsAdapter(navMenuItems)
 
         initNavMenuItemsSelection()
     }
@@ -172,7 +172,8 @@ class MainActivity : AppCompatActivity(){
     private fun initNavMenuItemsLogged(){
         rv_menu_items_logged.setHasFixedSize( true )
         rv_menu_items_logged.layoutManager = LinearLayoutManager(this)
-        rv_menu_items_logged.adapter = NavMenuItemsAdapter( NavMenuItemsDataBase( this ).itemsLogged )
+        rv_menu_items_logged.adapter =
+            NavMenuItemsAdapter(NavMenuItemsDataBase(this).itemsLogged)
 
         initNavMenuItemsLoggedSelection()
     }

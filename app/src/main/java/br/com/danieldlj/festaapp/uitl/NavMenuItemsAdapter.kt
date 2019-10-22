@@ -1,4 +1,4 @@
-package br.com.danieldlj.festaapp.ui
+package br.com.danieldlj.festaapp.uitl
 
 import android.graphics.Color
 import android.view.LayoutInflater
@@ -11,7 +11,6 @@ import androidx.recyclerview.selection.SelectionTracker
 import androidx.recyclerview.widget.RecyclerView
 import br.com.danieldlj.festaapp.R
 import br.com.danieldlj.festaapp.domain.NavMenuItem
-import br.com.danieldlj.festaapp.uitl.NavMenuItemDetails
 
 
 class NavMenuItemsAdapter ( val items: List<NavMenuItem> ) :

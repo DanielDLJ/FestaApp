@@ -2,7 +2,6 @@ package br.com.danieldlj.festaapp.uitl
 
 import android.view.MotionEvent
 import androidx.recyclerview.selection.ItemDetailsLookup
-import br.com.danieldlj.festaapp.ui.NavMenuItemsAdapter
 
 
 /*
