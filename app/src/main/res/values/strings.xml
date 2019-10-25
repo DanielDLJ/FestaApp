@@ -59,6 +59,8 @@
     <!-- FragmentListRep -->
     <string name="title_frag_list_rep">Lista de Repúblicas</string>
 
+    <!-- FragmentPost -->
+    <string name="title_frag_post">Posts</string>
 
     <!-- Image Picker API - Adição e sobreposição de String -->
     <string name="imagepicker_msg_no_images">Não há imagens na galeria.</string>
