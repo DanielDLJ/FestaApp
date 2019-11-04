@@ -4,28 +4,55 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import br.com.danieldlj.festaapp.MainActivity
 import br.com.danieldlj.festaapp.R
+import br.com.danieldlj.festaapp.ui.expenses.Drink.DrinkExpensesFragment
+import br.com.danieldlj.festaapp.ui.expenses.Fixed.FixedExpensesFragment
+import kotlinx.android.synthetic.main.fragment_expenses.*
+
+
 
 class ExpensesFragment : Fragment() {
 
-    private lateinit var expensesViewModel: ExpensesViewModel
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        expensesViewModel =
-            ViewModelProviders.of(this).get(ExpensesViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_expenses, container, false)
-        val textView: TextView = root.findViewById(R.id.text_expenses)
-        expensesViewModel.text.observe(this, Observer {
-            textView.text = it
-        })
-        return root
+        return inflater
+            .inflate(R.layout.fragment_expenses, container, false)
+    }
+
+    override fun onActivityCreated( savedInstanceState: Bundle? ) {
+        super.onActivityCreated( savedInstanceState )
+
+        initItems()
+    }
+
+    private fun initItems(){
+
+        //Criando o adaptador de fragmentos que ficarão expostos no ViewPager.
+        val sectionsPagerAdapter = getSectionsAdapter()
+
+        /*
+         * Acessando o ViewPager e vinculando o adaptador de
+         * fragmentos a ele.
+         * */
+        //view_pager.adapter = sectionsPagerAdapter
+
+        /*
+         * Acessando o TabLayout e vinculando ele ao ViewPager
+         * para que haja sincronia na escolha realizada em
+         * qualquer um destes componentes visuais.
+         * */
+        //tabs.setupWithViewPager( view_pager )
+    }
+
+    fun getSectionsAdapter()
+            = ExpensesSectionsAdapter((activity as MainActivity), (activity as MainActivity).getSupportFragmentManager(),
+        DrinkExpensesFragment(), FixedExpensesFragment()
+    )
+
+    override fun onResume() {
+        super.onResume()
+        (activity as MainActivity).updateToolbarTitleInFragment( R.string.title_frag_expenses_fragment )
     }
 }

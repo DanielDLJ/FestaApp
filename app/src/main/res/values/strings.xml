@@ -113,6 +113,17 @@
 
 
 
+    <!-- ExpensesFragment -->
+    <string name="title_frag_expenses_fragment">Gastos</string>
+    <string name="total">Total = </string>
+        <!-- DrinkExpensesFragment -->
+        <string name="drink_expenses_fragment_tab_list">Bebidas</string>
+
+        <!-- FiexedExpensesFragment -->
+        <string name="fixed_expenses_fragment_tab_list">Fixos</string>
+
+
+
     <!-- Dialog Password -->
     <string name="dialog_password_info">Entre com a senha para poder prosseguir:</string>
     <string name="dialog_password_hint">Senha</string>
