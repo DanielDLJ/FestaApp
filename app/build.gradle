@@ -11,6 +11,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
         release {
@@ -58,4 +59,11 @@ dependencies {
 
     /* AndroidUtilCode API */
     implementation 'com.blankj:utilcode:1.23.7'
+
+    /* Máscara EditText API */
+    implementation 'com.github.santalu:mask-edittext:1.1.1'
+}
+
+androidExtensions {
+    experimental = true
 }
