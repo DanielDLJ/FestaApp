@@ -1,5 +1,9 @@
 package br.com.danieldlj.festaapp.domain
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 class Post(
     val id: Int,
     val what: String,
@@ -8,4 +12,9 @@ class Post(
     var time: String,
     var who: String,
     var description: String,
-    var done: Boolean)
+    var done: Boolean): Parcelable {
+
+    companion object {
+        const val KEY = "post-key"
+    }
+}

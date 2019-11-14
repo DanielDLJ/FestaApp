@@ -4,12 +4,15 @@ import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-class Person(
+class Invite(
     val id: Int,
     val name: String,
-    val image: String): Parcelable {
+    var valor:Float,
+    var expectedSales:Int,
+    var total:Float,
+    var student: Boolean): Parcelable {
 
     companion object {
-        const val KEY = "person-key"
+        const val KEY = "invite-key"
     }
 }

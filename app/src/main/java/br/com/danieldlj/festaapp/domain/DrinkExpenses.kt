@@ -1,5 +1,9 @@
 package br.com.danieldlj.festaapp.domain
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 class DrinkExpenses(
     val id: Int,
     val item: String,
@@ -12,7 +16,12 @@ class DrinkExpenses(
     var provider:String,
     var cups:Float, //quantidade de copos
     var allBar:Float, //=((qtdProvided * 1000) / Quantidade de Pessoas) * cups    VALOR TOTAL DE VENDA DE TODO BAR (calculado)
-    val paid: Boolean)
+    val paid: Boolean): Parcelable {
+
+    companion object {
+        const val KEY = "drink-expenses-key"
+    }
+}
 
 
 /*
