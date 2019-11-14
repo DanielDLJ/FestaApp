@@ -17,6 +17,15 @@
     <string name="tx_conected_as">Conectado como:</string>
 
 
+    <!-- Geral -->
+    <string name="add">Adicionar</string>
+    <string name="update">Atualizar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="invalid">Falhou, tente novamente.</string>
+    <string name="hour">20:00</string>
+    <string name="money">R$ 300,00</string>
+
+
     <!-- Menu -->
     <string name="item_dashboard">Dashboard</string>
     <string name="item_expenses">Gastos</string>
@@ -61,6 +70,20 @@
 
     <!-- FragmentPost -->
     <string name="title_frag_post">Posts</string>
+    <string name="what">O que:</string>
+    <string name="notices">Avisos:</string>
+    <string name="date">Data:</string>
+    <string name="date_example">20/04/2019</string>
+    <string name="horary">Horário:</string>
+    <string name="who">Quem:</string>
+    <string name="description">Descrição:</string>
+
+
+    <string name="updating_post">Atualizando post.</string>
+
+    <string name="add_post">Adicionar Post</string>
+    <string name="update_post_going">Atualizando&#8230;</string>
+    <string name="update_post">Atualizar post</string>
 
     <!-- Image Picker API - Adição e sobreposição de String -->
     <string name="imagepicker_msg_no_images">Não há imagens na galeria.</string>
@@ -68,6 +91,15 @@
     <string name="imagepicker_cam_photos_activity">Fotos câmera BlueShoes</string>
     <string name="imagepicker_selection_limit">Apenas uma imagem pode ser selecionada.</string>
     <string name="nick_name_label">Apelido:</string>
+
+
+    <!-- FragmentRotation -->
+    <string name="title_frag_rotation">Escala</string>
+    <string name="time_to">até</string>
+    <string name="time_start">Hora inicio.</string>
+
+    <string name="update_rotation_time_going">Atualizando&#8230;</string>
+    <string name="update_rotation_time">Atualizar escala</string>
 
 
     <!-- LoginActivity -->
@@ -116,12 +148,60 @@
     <!-- ExpensesFragment -->
     <string name="title_frag_expenses_fragment">Gastos</string>
     <string name="total">Total = </string>
+
+    <string name="expenses_fragment_name">Nome:</string>
+
         <!-- DrinkExpensesFragment -->
         <string name="drink_expenses_fragment_tab_list">Bebidas</string>
+
+        <string name="drink_expenses_fragment_qtdByPerson">Qdd/pessoa (L)</string>
+        <string name="drink_expenses_fragment_qtdProvided">Quantidade PREVISTA (em L)</string>
+        <string name="drink_expenses_fragment_used">Qdd (unid) USADO</string>
+        <string name="drink_expenses_fragment_priceLiter">Preço litro:</string>
+        <string name="drink_expenses_fragment_total">TOTAL:</string>
+        <string name="drink_expenses_fragment_provider">Fornecedor:</string>
+        <string name="drink_expenses_fragment_cups">COPOS (qtd e valor individual)</string>
+        <string name="drink_expenses_fragment_allBar">Valor total de venda de todo bar</string>
+        <string name="drink_expenses_fragment_paid">Pago</string>
+        <string name="drink_expenses_fragment_litros_by_pessoa">litros/pessoa</string>
+        <string name="drink_expenses_fragment_total_sum">Soma Total</string>
+        <string name="drink_expenses_fragment_total_sale_drinks">Total venda de bebidas</string>
+        <string name="drink_expenses_fragment_total_drink_less_shopping">Venda de bebidas do role - compras de bebidas</string>
+
+        <string name="updating_drink">Atualizando bebida.</string>
+
+        <string name="add_drink">Adicionar bebida</string>
+        <string name="update_drink_going">Atualizando&#8230;</string>
+        <string name="update_drink">Atualizar bebida</string>
+
 
         <!-- FiexedExpensesFragment -->
         <string name="fixed_expenses_fragment_tab_list">Fixos</string>
 
+        <string name="fixed_expenses_fragment_price">Preço:</string>
+
+        <string name="updating_fixed">Atualizando fixo.</string>
+
+        <string name="add_fixed">Adicionar fixo</string>
+        <string name="update_fixed_going">Atualizando&#8230;</string>
+        <string name="update_fixed">Atualizar fixo</string>
+
+
+
+    <!-- InviteFragment -->
+    <string name="title_frag_invite_fragment">Convites</string>
+
+    <string name="updating_invite">Atualizando Convite.</string>
+
+    <string name="add_invite">Adicionar convite</string>
+    <string name="update_invite_going">Atualizando&#8230;</string>
+    <string name="update_invite">Atualizar convite</string>
+
+        <!-- StudentFragment -->
+        <string name="student_invite_fragment_tab_list">Alunos</string>
+
+        <!-- NotStudentFragment -->
+        <string name="not_student_invite_fragment_tab_list">Não Alunos</string>
 
 
     <!-- Dialog Password -->
@@ -142,8 +222,6 @@
     <string name="sign_up_going">Cadastrando&#8230;</string>
     <string name="invalid_sign_up_email">E-mail já cadastrado.</string>
     <string name="invalid_confirmed_password">Confirme a senha informada no campo acima.</string>
-
-
 
 
 

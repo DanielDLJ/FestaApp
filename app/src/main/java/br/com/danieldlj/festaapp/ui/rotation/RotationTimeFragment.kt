@@ -12,16 +12,17 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.danieldlj.festaapp.MainActivity
 import br.com.danieldlj.festaapp.R
 import br.com.danieldlj.festaapp.data.RotationDataBase
+import br.com.danieldlj.festaapp.domain.Rotation
 import kotlinx.android.synthetic.main.fragment_rotation.*
 
-class RotationFragment : Fragment() {
+class RotationTimeFragment : Fragment() {
 
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         return inflater
-            .inflate(R.layout.fragment_rotation, container, false)
+            .inflate(R.layout.fragment_rotation_time, container, false)
     }
 
     override fun onActivityCreated( savedInstanceState: Bundle? ) {
@@ -31,9 +32,11 @@ class RotationFragment : Fragment() {
     }
 
     private fun initItems(){
+        val rotation = arguments!!.getParcelable<Rotation>(Rotation.KEY)
 
-        val adapter = context?.let { RotationAdapter(this, RotationDataBase.getItems()) }
+        val adapter = context?.let { RotationTimeAdapter(this, rotation?.rotationList) }
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(context)
+
     }
 }

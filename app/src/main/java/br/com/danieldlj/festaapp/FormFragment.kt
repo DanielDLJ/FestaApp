@@ -1,4 +1,4 @@
-package br.com.danieldlj.festaapp.ui.config
+package br.com.danieldlj.festaapp
 
 import android.app.AlertDialog
 import android.content.DialogInterface
@@ -16,7 +16,6 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
-import br.com.danieldlj.festaapp.R
 import br.com.danieldlj.festaapp.uitl.isValidPassword
 import br.com.danieldlj.festaapp.uitl.validate
 import com.blankj.utilcode.util.ColorUtils

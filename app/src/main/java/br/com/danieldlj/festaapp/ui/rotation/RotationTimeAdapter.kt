@@ -1,4 +1,4 @@
-package br.com.danieldlj.festaapp.ui.post
+package br.com.danieldlj.festaapp.ui.rotation
 
 import android.content.Context
 import android.graphics.Color
@@ -6,38 +6,40 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.ListView
 import android.widget.TextView
 import androidx.fragment.app.FragmentTransaction
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.danieldlj.festaapp.R
 import br.com.danieldlj.festaapp.domain.Post
+import br.com.danieldlj.festaapp.domain.Rotation
+import br.com.danieldlj.festaapp.domain.RotationTime
 
-class PostAdapter(private val fragment : PostFragment,
-                  private val items: List<Post>?) : RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
+class RotationTimeAdapter(private val fragment : RotationTimeFragment,
+                          private val items:  List<RotationTime>?) : RecyclerView.Adapter<RotationTimeAdapter.RotationTimeViewHolder>() {
 
     override
-    fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
+    fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RotationTimeViewHolder {
         val layout = LayoutInflater
             .from(parent.context)
-            .inflate(R.layout.item_post, parent, false)
-        return PostViewHolder(layout)
+            .inflate(R.layout.item_rotation_time, parent, false)
+        return RotationTimeViewHolder(layout)
     }
 
     override
-    fun onBindViewHolder(holder: PostViewHolder, position: Int) {
+    fun onBindViewHolder(holder: RotationTimeViewHolder, position: Int) {
         val item = items?.get(position)
 
-        holder.tvWhat.text = item?.what
-        val schedule = item?.date + "\n" + item?.time
-        holder.tvTime.text = schedule
+        val time = item?.timeStart + "\n" + "até" + "\n" + item?.timeTo
+        holder.tvTime.text = time
 
-        if(item?.done!!){
-            holder.tvTime.setTextColor(Color.parseColor("#000000"))
-        }else{
-            holder.tvTime.setTextColor(Color.parseColor("#FF0000"))
-        }
+        val adapter = fragment?.let { fragment.context?.let { it1 -> RotationTimeNameAdapter(it1, item?.persons!!) } }
+        holder.recyclerView.adapter = adapter
+        holder.recyclerView.layoutManager = LinearLayoutManager(fragment.context)
 
-        holder.itemView.setOnClickListener { updatePost(position) }
+        holder.itemView.setOnClickListener { editRotationTime(position) }
     }
 
     override
@@ -45,23 +47,29 @@ class PostAdapter(private val fragment : PostFragment,
         return items?.size ?: 0
     }
 
-    private fun onItemClicked(postModel: Post?) {
+    private fun onItemClicked(rotationTimeModel: RotationTime?) {
+
         notifyDataSetChanged()
     }
 
-    class PostViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var tvWhat: TextView = itemView.findViewById(R.id.tvWhat)
+    class RotationTimeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
         var tvTime: TextView = itemView.findViewById(R.id.tvTime)
+        var recyclerView: RecyclerView = itemView.findViewById(R.id.recyclerView)
 
     }
 
-    private fun updatePost( position: Int ){
 
-        val updateFrag = FormUpdatePostFragment()
+    private fun editRotationTime( position: Int ){
+
+        val updateFrag = FormNewRotationTimeFragment()
 
         //Colocando como dado de transição o item selecionado para atualização.
         val bundle = Bundle()
-        bundle.putParcelable(Post.KEY, items?.get(position))
+        val rotation = items?.let { Rotation(1,"x", it) }
+
+        bundle.putParcelable(Rotation.KEY, rotation)
+        bundle.putInt(Rotation.POSITION, position)
         updateFrag.arguments = bundle
 
         val transaction = fragment

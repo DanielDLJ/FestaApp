@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:orientation="vertical">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/riv_image"
+                    android:layout_width="108dp"
+                    android:layout_height="108dp"
+                    android:src="@drawable/profile_hint"
+                    android:scaleType="centerCrop"
+                    app:riv_border_color="@color/colorViewLine"
+                    app:riv_border_width="1dp"
+                    app:riv_corner_radius="108dp"
+                    app:riv_mutate_background="false"
+                    app:riv_oval="true"
+                    app:riv_tile_mode="clamp"
+                    android:layout_gravity="end"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_gravity="center_vertical"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tv_photo_info"
+                    style="@style/TextViewOrangeInfo"
+                    android:layout_width="90dp"
+                    android:maxLines="10"
+                    android:text="@string/info_profile_photo"
+                    android:gravity="center"
+                    android:layout_gravity="start"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TextViewFormLabel"
+                android:text="@string/expenses_fragment_name"/>
+
+            <EditText
+                android:id="@+id/et_drink_name"
+                style="@style/EditTextFormField"
+                android:layout_width="match_parent"
+                android:inputType="textPersonName"
+                android:background="@drawable/bg_form_field"
+                android:imeOptions="actionNext"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"
+                android:layout_marginRight="12dp"
+                android:layout_marginEnd="12dp"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TextViewFormLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/drink_expenses_fragment_qtdByPerson" />
+
+                <EditText
+                    android:id="@+id/et_drink_qtdByPerson"
+                    style="@style/EditTextFormField"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/bg_form_field"
+                    android:gravity="center"
+                    android:imeOptions="actionNext"
+                    android:inputType="number" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"
+                android:orientation="vertical"
+                android:layout_gravity="center">
+
+                <TextView
+                    style="@style/TextViewFormLabel"
+                    android:layout_marginStart="20dp"
+                    android:layout_gravity="center"
+                    android:text="@string/drink_expenses_fragment_qtdProvided"/>
+
+                <TextView
+                    android:id="@+id/txt_drink_qtdProvided"
+                    style="@style/TextViewFormLabel"
+                    android:layout_marginStart="10dp"
+                    android:layout_gravity="center"
+                    android:text="@string/money"/>
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"
+                android:layout_marginRight="12dp"
+                android:layout_marginEnd="12dp"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TextViewFormLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/drink_expenses_fragment_priceLiter" />
+
+                <EditText
+                    android:id="@+id/et_drink_priceLiter"
+                    style="@style/EditTextFormField"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/bg_form_field"
+                    android:gravity="center"
+                    android:imeOptions="actionNext"
+                    android:inputType="number" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+
+                <TextView
+                    style="@style/TextViewFormLabel"
+                    android:layout_marginStart="20dp"
+                    android:text="@string/drink_expenses_fragment_total"/>
+
+                <TextView
+                    android:id="@+id/txt_drink_total"
+                    style="@style/TextViewFormLabel"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/money"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TextViewFormLabel"
+                android:text="@string/drink_expenses_fragment_provider"/>
+
+            <EditText
+                android:id="@+id/et_drink_provider"
+                style="@style/EditTextFormField"
+                android:layout_width="match_parent"
+                android:inputType="textPersonName"
+                android:background="@drawable/bg_form_field"
+                android:imeOptions="actionNext"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"
+                android:layout_marginRight="12dp"
+                android:layout_marginEnd="12dp"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TextViewFormLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/drink_expenses_fragment_cups" />
+
+                <EditText
+                    android:id="@+id/et_drink_cups"
+                    style="@style/EditTextFormField"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/bg_form_field"
+                    android:gravity="center"
+                    android:imeOptions="actionNext"
+                    android:inputType="number" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"
+                android:orientation="vertical"
+                android:layout_gravity="center">
+
+                <TextView
+                    style="@style/TextViewFormLabel"
+                    android:layout_marginStart="20dp"
+
+                    android:text="@string/drink_expenses_fragment_allBar"/>
+
+                <TextView
+                    android:id="@+id/txt_drink_allBar"
+                    style="@style/TextViewFormLabel"
+                    android:layout_marginStart="10dp"
+                    android:layout_gravity="center"
+                    android:text="@string/money"/>
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="3dp"
+            android:gravity="end"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/bt_cancel_drink"
+                style="@style/ButtonForm"
+                android:layout_marginEnd="10dp"
+                android:layout_gravity="end"
+                android:background="@drawable/bt_cancel_bg"
+                android:text="@string/cancel"/>
+
+            <Button
+                android:id="@+id/bt_nu_drink"
+                style="@style/ButtonForm"
+                android:layout_marginEnd="1dp"
+                android:layout_gravity="end"
+                android:text="@string/add_drink"/>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

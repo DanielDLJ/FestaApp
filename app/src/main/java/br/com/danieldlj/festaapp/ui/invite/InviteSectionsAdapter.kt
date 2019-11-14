@@ -1,4 +1,4 @@
-package br.com.danieldlj.festaapp.ui.expenses
+package br.com.danieldlj.festaapp.ui.invite
 
 import android.content.Context
 import androidx.fragment.app.Fragment
@@ -66,7 +66,7 @@ import br.com.danieldlj.festaapp.ui.expenses.Fixed.FixedExpensesFragment
  * eles possam ser utilizados novamente, isso enquanto houver
  * caminho de volta a eles (transição entre Tabs, por exemplo).
  */
-class ExpensesSectionsAdapter(
+class InviteSectionsAdapter(
     private val context: Context,
     fm: FragmentManager,
     private vararg val fragments: FormFragment
@@ -92,8 +92,8 @@ class ExpensesSectionsAdapter(
     override fun getPageTitle( position: Int )
             = context.getString(
         when( position ){
-            FIRST_PAGE_POS -> R.string.drink_expenses_fragment_tab_list
-            else -> R.string.fixed_expenses_fragment_tab_list
+            FIRST_PAGE_POS -> R.string.student_invite_fragment_tab_list
+            else -> R.string.not_student_invite_fragment_tab_list
         }
     )
 

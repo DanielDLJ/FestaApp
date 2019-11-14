@@ -1,4 +1,4 @@
-package br.com.danieldlj.festaapp.ui.post
+package br.com.danieldlj.festaapp.ui.rotation
 
 import android.content.Context
 import android.graphics.Color
@@ -11,33 +11,26 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
 import br.com.danieldlj.festaapp.R
 import br.com.danieldlj.festaapp.domain.Post
+import br.com.danieldlj.festaapp.domain.Rotation
 
-class PostAdapter(private val fragment : PostFragment,
-                  private val items: List<Post>?) : RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
+class RotationAdapter(private val fragment : RotationFragment,
+                      private val items: List<Rotation>?) : RecyclerView.Adapter<RotationAdapter.RotationViewHolder>() {
 
     override
-    fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
+    fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RotationViewHolder {
         val layout = LayoutInflater
             .from(parent.context)
-            .inflate(R.layout.item_post, parent, false)
-        return PostViewHolder(layout)
+            .inflate(R.layout.item_rotation, parent, false)
+        return RotationViewHolder(layout)
     }
 
     override
-    fun onBindViewHolder(holder: PostViewHolder, position: Int) {
+    fun onBindViewHolder(holder: RotationViewHolder, position: Int) {
         val item = items?.get(position)
 
-        holder.tvWhat.text = item?.what
-        val schedule = item?.date + "\n" + item?.time
-        holder.tvTime.text = schedule
+        holder.tvName.text = item?.name
 
-        if(item?.done!!){
-            holder.tvTime.setTextColor(Color.parseColor("#000000"))
-        }else{
-            holder.tvTime.setTextColor(Color.parseColor("#FF0000"))
-        }
-
-        holder.itemView.setOnClickListener { updatePost(position) }
+        holder.itemView.setOnClickListener { openRotationTime( position ) }
     }
 
     override
@@ -45,23 +38,22 @@ class PostAdapter(private val fragment : PostFragment,
         return items?.size ?: 0
     }
 
-    private fun onItemClicked(postModel: Post?) {
+    private fun onItemClicked(rotationModel: Rotation?) {
         notifyDataSetChanged()
     }
 
-    class PostViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var tvWhat: TextView = itemView.findViewById(R.id.tvWhat)
-        var tvTime: TextView = itemView.findViewById(R.id.tvTime)
+    class RotationViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        var tvName: TextView = itemView.findViewById(R.id.tvName)
 
     }
 
-    private fun updatePost( position: Int ){
+    private fun openRotationTime( position: Int ){
 
-        val updateFrag = FormUpdatePostFragment()
+        val updateFrag = RotationTimeFragment()
 
         //Colocando como dado de transição o item selecionado para atualização.
         val bundle = Bundle()
-        bundle.putParcelable(Post.KEY, items?.get(position))
+        bundle.putParcelable(Rotation.KEY, items?.get(position))
         updateFrag.arguments = bundle
 
         val transaction = fragment

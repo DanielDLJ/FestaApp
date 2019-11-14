@@ -23,7 +23,9 @@ import br.com.danieldlj.festaapp.ui.expenses.ExpensesFragment
 import br.com.danieldlj.festaapp.ui.invite.InviteFragment
 import br.com.danieldlj.festaapp.ui.list_rep.ListRepFragment
 import br.com.danieldlj.festaapp.ui.post.PostFragment
+import br.com.danieldlj.festaapp.ui.post.PostHostFragment
 import br.com.danieldlj.festaapp.ui.rotation.RotationFragment
+import br.com.danieldlj.festaapp.ui.rotation.RotationHostFragment
 import br.com.danieldlj.festaapp.uitl.NavMenuItemDetailsLookup
 import br.com.danieldlj.festaapp.uitl.NavMenuItemKeyProvider
 import br.com.danieldlj.festaapp.uitl.NavMenuItemPredicate
@@ -222,7 +224,25 @@ class MainActivity : AppCompatActivity(){
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START)
         } else {
+            /*val fragmentsInStack = supportFragmentManager.backStackEntryCount
+            /*
+             * Se houver algum fragmento em pilha de fragmentos
+             * e o fragmento atual em tela não for o fragment de
+             * formulário de novo endereço de entrega, então o
+             * próximo fragmento da pilha de fragmentos é que
+             * deve ser apresentado.
+             *
+             * Caso contrário, volte a atividade anterior via
+             * finish().
+             * */
+            if( fragmentsInStack > 0 ){
+                supportFragmentManager.popBackStack()
+            }
+            else {
+                super.onBackPressed()
+            }*/
             super.onBackPressed()
+
         }
     }
 
@@ -315,8 +335,8 @@ class MainActivity : AppCompatActivity(){
             R.id.item_dashboard.toLong() -> DashboardFragment()
             R.id.item_expenses.toLong() -> ExpensesFragment()
             R.id.item_invite.toLong() -> InviteFragment()
-            R.id.item_rotation.toLong() -> RotationFragment()
-            R.id.item_post.toLong() -> PostFragment()
+            R.id.item_rotation.toLong() -> RotationHostFragment()
+            R.id.item_post.toLong() -> PostHostFragment()
             R.id.item_list_rep.toLong() -> ListRepFragment()
             else -> DashboardFragment()
         }

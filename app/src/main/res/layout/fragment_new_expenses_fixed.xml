@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:orientation="vertical">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TextViewFormLabel"
+                android:text="@string/expenses_fragment_name"/>
+
+            <EditText
+                android:id="@+id/et_drink_name"
+                style="@style/EditTextFormField"
+                android:layout_width="match_parent"
+                android:inputType="textPersonName"
+                android:background="@drawable/bg_form_field"
+                android:imeOptions="actionNext"/>
+        </LinearLayout>
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TextViewFormLabel"
+                android:text="@string/fixed_expenses_fragment_price"/>
+
+            <EditText
+                android:id="@+id/et_fixed_price"
+                style="@style/EditTextFormField"
+                android:layout_width="match_parent"
+                android:inputType="textPersonName"
+                android:background="@drawable/bg_form_field"
+                android:imeOptions="actionNext"/>
+        </LinearLayout>
+
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="3dp"
+            android:gravity="end"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/bt_cancel_fixed"
+                style="@style/ButtonForm"
+                android:layout_marginEnd="10dp"
+                android:layout_gravity="end"
+                android:background="@drawable/bt_cancel_bg"
+                android:text="@string/cancel"/>
+
+            <Button
+                android:id="@+id/bt_nu_fixed"
+                style="@style/ButtonForm"
+                android:layout_marginEnd="1dp"
+                android:layout_gravity="end"
+                android:text="@string/add_fixed"/>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
