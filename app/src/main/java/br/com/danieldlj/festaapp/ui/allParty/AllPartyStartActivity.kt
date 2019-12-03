@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import br.com.danieldlj.festaapp.LoginActivity
+import br.com.danieldlj.festaapp.MainActivity
 import br.com.danieldlj.festaapp.R
 import br.com.danieldlj.festaapp.api.ApiClient
 import br.com.danieldlj.festaapp.data.AccountSettingsItemsDataBase
@@ -23,7 +25,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class AllPartyActivity : AppCompatActivity(){
+class AllPartyStartActivity : AppCompatActivity(){
 
     val allparty = ArrayList<Party>()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +41,7 @@ class AllPartyActivity : AppCompatActivity(){
 
     override fun onOptionsItemSelected( item: MenuItem): Boolean {
         if( item.itemId == android.R.id.home ){
-            finish()
+            onBackPressed()
             return true
         }
         return super.onOptionsItemSelected( item )
@@ -54,7 +56,7 @@ class AllPartyActivity : AppCompatActivity(){
         val divider = DividerItemDecoration(this, layoutManager.getOrientation())
         divider.setDrawable(ContextCompat.getDrawable(this, R.drawable.light_grey_divider_line)!!)
         rv_parties.addItemDecoration( divider )
-        rv_parties.adapter = AllPartyListAdapter(this,allparty)
+        rv_parties.adapter = AllPartyStartListAdapter(this,allparty)
         getData()
     }
 
@@ -75,11 +77,18 @@ class AllPartyActivity : AppCompatActivity(){
     }
 
 
+    override fun onBackPressed() {
+        var intent : Intent  = Intent(this, LoginActivity::class.java)
+        startActivity( intent )
+        finish()
+    }
+
+
     fun leave(returnParty:Party) {
         if(returnParty.id != -1) {
-            val result = Intent()
-            result.putExtra(Party.KEY, returnParty)
-            setResult(Activity.RESULT_OK, result)
+            var intent : Intent  = Intent(this, MainActivity::class.java)
+            intent.putExtra(Party.KEY, returnParty)
+            startActivity( intent )
             finish()
         }else{
             finish()

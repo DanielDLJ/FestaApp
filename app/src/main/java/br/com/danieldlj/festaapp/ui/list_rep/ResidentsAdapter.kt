@@ -29,7 +29,6 @@ class ResidentsAdapter(context: Context, data: List<Resident>?) :
 
         holder.cbChecked.isChecked = item?.check!!
         holder.tvTitle.text = item.name
-        holder.tvDescription.text = item.nickname
 
         holder.cbChecked.setOnClickListener { onItemClicked(item) }
 
@@ -48,6 +47,5 @@ class ResidentsAdapter(context: Context, data: List<Resident>?) :
     class ResidentsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var cbChecked: CheckBox = itemView.findViewById(R.id.cbChecked)
         var tvTitle: TextView = itemView.findViewById(R.id.tvTitle)
-        var tvDescription: TextView = itemView.findViewById(R.id.tvDescription)
     }
 }

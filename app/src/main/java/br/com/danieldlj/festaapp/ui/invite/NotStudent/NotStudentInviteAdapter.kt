@@ -1,14 +1,17 @@
 package br.com.danieldlj.festaapp.ui.invite.NotStudent
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
 import br.com.danieldlj.festaapp.R
 import br.com.danieldlj.festaapp.domain.Invite
 
-class NotStudentInviteAdapter(private val fragment : NotStudentInviteFragment,
+class NotStudentInviteAdapter(private val textView: TextView,
+                              private val fragment : NotStudentInviteFragment,
                               private val items: List<Invite>?) : RecyclerView.Adapter<NotStudentInviteAdapter.NotStudentInviteViewHolder>() {
     private var total: Float = 0F
 
@@ -24,9 +27,13 @@ class NotStudentInviteAdapter(private val fragment : NotStudentInviteFragment,
     fun onBindViewHolder(holder: NotStudentInviteViewHolder, position: Int) {
         val item = items?.get(position)
         holder.tvName.text = item?.name
-        val valor = "R$ " + item?.valor
+        var valor = "R$ " + item?.valor
         holder.tvPrice.text = valor
-        //holder.itemView.setOnClickListener { updateNotStudentInvite(position) }
+        holder.itemView.setOnClickListener { updateNotStudentInvite(position) }
+
+        total += item?.valor!!
+        valor = "R$ " + total
+        textView.text = valor
     }
 
     override
@@ -44,7 +51,7 @@ class NotStudentInviteAdapter(private val fragment : NotStudentInviteFragment,
     }
 
 
-    /*private fun updateNotStudentInvite position: Int ){
+    private fun updateNotStudentInvite (position: Int ){
 
         val updateFrag = FormUpdateNotStudentInviteFragment()
 
@@ -62,7 +69,7 @@ class NotStudentInviteAdapter(private val fragment : NotStudentInviteFragment,
          * seja possível o replace de fragmentos dentro da mesma
          * janela
          * */
-        transaction.replace(R.id.fl_root_drink, updateFrag)
+        transaction.replace(R.id.fl_root_not_student, updateFrag)
 
         /*
          * Com o setTransition() e addToBackStack() nós estamos,
@@ -75,5 +82,5 @@ class NotStudentInviteAdapter(private val fragment : NotStudentInviteFragment,
             .setTransition( FragmentTransaction.TRANSIT_FRAGMENT_OPEN )
             .addToBackStack( null )
             .commit()
-    }*/
+    }
 }

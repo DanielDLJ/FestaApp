@@ -79,7 +79,7 @@
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.4"
+                        android:layout_weight="1"
                         android:layout_marginRight="12dp"
                         android:layout_marginEnd="12dp"
                         android:orientation="vertical">
@@ -96,7 +96,7 @@
                             android:layout_width="match_parent"
                             android:background="@drawable/bg_form_field"
                             android:inputType="number"
-                            android:gravity="center"
+                            android:gravity="left"
                             android:hint="@string/date_example"
                             app:met_mask="##/##/####"
                             android:imeOptions="actionNext"/>
@@ -105,7 +105,7 @@
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.7"
+                        android:layout_weight="1"
                         android:orientation="vertical">
 
                         <TextView
@@ -115,11 +115,11 @@
                         <com.santalu.maskedittext.MaskEditText
                             android:id="@+id/et_post_horary"
                             style="@style/EditTextFormField"
-                            android:layout_width="75dp"
+                            android:layout_width="match_parent"
                             android:background="@drawable/bg_form_field"
                             android:imeOptions="actionNext"
                             android:hint="@string/hour"
-                            android:gravity="center"
+                            android:gravity="left"
                             app:met_mask="##:##"
                             android:inputType="number" />
                     </LinearLayout>

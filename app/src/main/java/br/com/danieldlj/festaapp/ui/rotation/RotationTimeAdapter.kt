@@ -62,7 +62,7 @@ class RotationTimeAdapter(private val fragment : RotationTimeFragment,
 
     private fun editRotationTime( position: Int ){
 
-        val updateFrag = FormNewRotationTimeFragment()
+        val updateFrag = FormUpdateRotationTimeFragment()
 
         //Colocando como dado de transição o item selecionado para atualização.
         val bundle = Bundle()

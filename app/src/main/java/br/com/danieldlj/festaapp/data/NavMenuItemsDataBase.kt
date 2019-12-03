@@ -7,9 +7,9 @@ import br.com.danieldlj.festaapp.domain.NavMenuItem
 
 class NavMenuItemsDataBase ( context: Context){
     val items = listOf(
-        NavMenuItem(
+        /*NavMenuItem(
             R.id.item_dashboard.toLong(), context.getString(R.string.item_dashboard)
-        ),
+        ),*/
         NavMenuItem(
             R.id.item_expenses.toLong(), context.getString(R.string.item_expenses)
         ),

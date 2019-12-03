@@ -11,6 +11,8 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
 import br.com.danieldlj.festaapp.R
 import br.com.danieldlj.festaapp.domain.Post
+import br.com.danieldlj.festaapp.uitl.getDate
+import br.com.danieldlj.festaapp.uitl.getTime
 
 class PostAdapter(private val fragment : PostFragment,
                   private val items: List<Post>?) : RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
@@ -28,7 +30,7 @@ class PostAdapter(private val fragment : PostFragment,
         val item = items?.get(position)
 
         holder.tvWhat.text = item?.what
-        val schedule = item?.date + "\n" + item?.time
+        val schedule = item?.date?.getDate() + "\n" + item?.date?.getTime()
         holder.tvTime.text = schedule
 
         if(item?.done!!){

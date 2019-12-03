@@ -1,5 +1,6 @@
 package br.com.danieldlj.festaapp
 
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.PorterDuff
 import android.os.Bundle
@@ -15,6 +16,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
+import br.com.danieldlj.festaapp.ui.allParty.AllPartyStartActivity
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.app_bar.*
 import kotlinx.android.synthetic.main.content_form.*
@@ -170,6 +172,9 @@ abstract class FormActivity : AppCompatActivity(), TextView.OnEditorActionListen
                     showProxy( false )
 
                     snackBarFeedback(fl_form_container, statusAction, feedbackMessage)
+                    var intent : Intent  = Intent(this, AllPartyStartActivity::class.java)
+                    startActivity( intent )
+                    finish()
                 }
             }
         }.start()

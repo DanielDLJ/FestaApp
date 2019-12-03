@@ -1,5 +1,6 @@
 package br.com.danieldlj.festaapp
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.drawerlayout.widget.DrawerLayout
@@ -14,25 +15,21 @@ import androidx.recyclerview.selection.StorageStrategy
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.danieldlj.festaapp.data.NavMenuItemsDataBase
 import br.com.danieldlj.festaapp.domain.NavMenuItem
+import br.com.danieldlj.festaapp.domain.Party
 import br.com.danieldlj.festaapp.domain.User
-import br.com.danieldlj.festaapp.uitl.NavMenuItemsAdapter
 import br.com.danieldlj.festaapp.ui.allParty.AllPartyActivity
 import br.com.danieldlj.festaapp.ui.config.AccountSettingsActivity
 import br.com.danieldlj.festaapp.ui.dashboard.DashboardFragment
 import br.com.danieldlj.festaapp.ui.expenses.ExpensesFragment
 import br.com.danieldlj.festaapp.ui.invite.InviteFragment
 import br.com.danieldlj.festaapp.ui.list_rep.ListRepFragment
-import br.com.danieldlj.festaapp.ui.post.PostFragment
 import br.com.danieldlj.festaapp.ui.post.PostHostFragment
-import br.com.danieldlj.festaapp.ui.rotation.RotationFragment
 import br.com.danieldlj.festaapp.ui.rotation.RotationHostFragment
-import br.com.danieldlj.festaapp.uitl.NavMenuItemDetailsLookup
-import br.com.danieldlj.festaapp.uitl.NavMenuItemKeyProvider
-import br.com.danieldlj.festaapp.uitl.NavMenuItemPredicate
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar.*
 import kotlinx.android.synthetic.main.nav_header_main.*
 import kotlinx.android.synthetic.main.nav_menu.*
+import br.com.danieldlj.festaapp.uitl.*
 
 
 class MainActivity : AppCompatActivity(){
@@ -43,8 +40,8 @@ class MainActivity : AppCompatActivity(){
         const val FRAGMENT_ID = "frag-id"
     }
 
-
-    val user = User("Daniel Leme Junior",R.drawable.user,"Tequilada")
+    val party = Party(1,"Tequilada","sdf","adsa")
+    val user = User("Daniel Leme Junior",R.drawable.user,party)
 
     lateinit var navMenuItems : List<NavMenuItem>
     lateinit var selectNavMenuItems: SelectionTracker<Long>
@@ -71,10 +68,16 @@ class MainActivity : AppCompatActivity(){
         drawer_layout.addDrawerListener( toggle )
         toggle.syncState()
 
+        var bundle :Bundle ?=intent.extras
+        var returnParty = bundle!!.getParcelable<Party>(Party.KEY)
+        user.party= returnParty!!
+        user.party.id = 1
+
         initNavMenu( savedInstanceState )
         initFragment()
 
     }
+
 
     fun updateToolbarTitleInFragment( titleStringId: Int ){
         toolbar.title = getString( titleStringId )
@@ -83,7 +86,7 @@ class MainActivity : AppCompatActivity(){
     private fun fillUserHeaderNavMenu(){
         iv_user.setImageResource(user.image)
         tv_user.text = user.name
-        tv_party.text = user.partyName
+        tv_party.text = user.party.name
     }
 
 
@@ -114,7 +117,7 @@ class MainActivity : AppCompatActivity(){
              * */
             var fragId = intent?.getIntExtra( FRAGMENT_ID, 0 )
             if(fragId == 0){
-                fragId = R.id.item_dashboard
+                fragId = R.id.item_expenses
             }
 
             /*
@@ -124,7 +127,6 @@ class MainActivity : AppCompatActivity(){
              * O primeiro item aqui é o de ID R.id.item_all_shoes.
              * */
             selectNavMenuItems.select( fragId!!.toLong() )
-
 
         }
     }
@@ -320,7 +322,7 @@ class MainActivity : AppCompatActivity(){
              * */
             var fragId = intent?.getIntExtra( FRAGMENT_ID, 0 )
             if( fragId == 0 ){
-                fragId = R.id.item_dashboard
+                fragId = R.id.item_expenses
             }
 
 
@@ -332,13 +334,13 @@ class MainActivity : AppCompatActivity(){
 
     private fun getFragment( fragmentId: Long ): Fragment {
         return when (fragmentId) {
-            R.id.item_dashboard.toLong() -> DashboardFragment()
+            //R.id.item_dashboard.toLong() -> DashboardFragment()
             R.id.item_expenses.toLong() -> ExpensesFragment()
             R.id.item_invite.toLong() -> InviteFragment()
             R.id.item_rotation.toLong() -> RotationHostFragment()
             R.id.item_post.toLong() -> PostHostFragment()
             R.id.item_list_rep.toLong() -> ListRepFragment()
-            else -> DashboardFragment()
+            else -> ExpensesFragment()
         }
     }
 
@@ -359,6 +361,7 @@ class MainActivity : AppCompatActivity(){
     fun isActivityCallInMenu( key: Long ) = when( key ){
         R.id.item_settings.toLong() -> true
         R.id.item_all_party.toLong() -> true
+        R.id.item_sign_out.toLong() -> true
         else -> false
     }
 
@@ -367,20 +370,44 @@ class MainActivity : AppCompatActivity(){
         callbackRemoveSelection()
 
         lateinit var intent : Intent
-
+        var resultCode = -1
         when( key ){
             R.id.item_settings.toLong() -> {
                 intent = Intent(this, AccountSettingsActivity::class.java)
                 intent.putExtra( User.KEY, user )
+                resultCode = 10
             }
             R.id.item_all_party.toLong() -> {
                 intent = Intent(this, AllPartyActivity::class.java)
                 intent.putExtra( User.KEY, user )
+                resultCode = 11
             }
+            R.id.item_sign_out.toLong() -> {
+                println("R.id.item_sign_out.toLong()")
+                intent = Intent(this, LoginActivity::class.java)
+                startActivity( intent  )
+                finish()
+            }
+
         }
 
         navMenu.saveIsActivityItemFired( this, true )
-        startActivity( intent )
+        startActivityForResult( intent , resultCode )
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (resultCode == Activity.RESULT_OK) {
+
+            if (requestCode == 11) { // allParty
+                val ReturnParty = data?.getParcelableExtra<Party>(Party.KEY)
+                user.party = ReturnParty!!
+                user.party.id = 1
+                tv_party.text = user.party.name
+            }
+        }
+
     }
 
 

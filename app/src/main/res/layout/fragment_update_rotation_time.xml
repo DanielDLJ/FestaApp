@@ -15,8 +15,9 @@
         android:textColor="@color/colorText"
         android:textStyle="bold"
         android:background="@color/colorTextBoxTransparent"
-        android:text="@string/updating_post"/>
+        android:text="@string/updating_rotation_time"/>
 
-    <include layout="@layout/fragment_new_post" />
+    <include
+        layout="@layout/fragment_new_rotation_time"/>
 
 </LinearLayout>

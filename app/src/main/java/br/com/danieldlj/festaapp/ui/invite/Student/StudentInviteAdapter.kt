@@ -1,15 +1,18 @@
 package br.com.danieldlj.festaapp.ui.invite.Student
 
 import android.graphics.Color
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
 import br.com.danieldlj.festaapp.R
 import br.com.danieldlj.festaapp.domain.Invite
 
-class StudentInviteAdapter(private val fragment : StudentInviteFragment,
+class StudentInviteAdapter(private val textView: TextView,
+                           private val fragment : StudentInviteFragment,
                            private val items: List<Invite>?) : RecyclerView.Adapter<StudentInviteAdapter.StudentInviteViewHolder>() {
     private var total: Float = 0F
 
@@ -26,9 +29,13 @@ class StudentInviteAdapter(private val fragment : StudentInviteFragment,
         val item = items?.get(position)
 
         holder.tvName.text = item?.name
-        val valor = "R$ " + item?.valor
+        var valor = "R$ " + item?.valor
         holder.tvPrice.text = valor
-        //holder.itemView.setOnClickListener { updateStudentInvite(position) }
+        holder.itemView.setOnClickListener { updateStudentInvite(position) }
+
+        total += item?.valor!!
+        valor = "R$ " + total
+        textView.text = valor
     }
 
     override
@@ -46,9 +53,9 @@ class StudentInviteAdapter(private val fragment : StudentInviteFragment,
 
     }
 
-   /* private fun updateStudentInvite( position: Int ){
+    private fun updateStudentInvite( position: Int ){
 
-        val updateFrag = FormUpdateStudentInviteFragment()
+        val updateFrag = FormUpdatetStudentInviteFragment()
 
         //Colocando como dado de transição o item selecionado para atualização.
         val bundle = Bundle()
@@ -64,7 +71,7 @@ class StudentInviteAdapter(private val fragment : StudentInviteFragment,
          * seja possível o replace de fragmentos dentro da mesma
          * janela
          * */
-        transaction.replace(R.id.fl_root_fixed, updateFrag)
+        transaction.replace(R.id.fl_root_student, updateFrag)
 
         /*
          * Com o setTransition() e addToBackStack() nós estamos,
@@ -77,5 +84,5 @@ class StudentInviteAdapter(private val fragment : StudentInviteFragment,
             .setTransition( FragmentTransaction.TRANSIT_FRAGMENT_OPEN )
             .addToBackStack( null )
             .commit()
-    }*/
+    }
 }

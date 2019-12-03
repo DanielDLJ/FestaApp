@@ -7,7 +7,7 @@ import kotlinx.android.parcel.Parcelize
 class User(
     val name: String,
     val image: Int,
-    val partyName: String) : Parcelable {
+    var party: Party) : Parcelable {
 
     companion object {
         const val KEY = "user-key"

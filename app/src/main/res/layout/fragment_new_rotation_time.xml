@@ -10,36 +10,46 @@
         android:padding="16dp"
         android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="vertical">
 
-                    <TextView
-                        style="@style/TextViewFormLabel"
-                        android:text="@string/time_start"/>
-                    <TextView
-                        android:id="@+id/txt_hour"
-                        style="@style/EditTextFormField"
-                        android:layout_width="70dp"
-                        android:background="@drawable/bg_form_field"
-                        android:gravity="center"
-                        android:text="@string/hour"/>
+            <TextView
+                style="@style/TextViewFormLabel"
+                android:text="@string/time_start"/>
+            <TextView
+                android:id="@+id/txt_hour"
+                style="@style/EditTextFormField"
+                android:layout_width="70dp"
+                android:background="@drawable/bg_form_field"
+                android:gravity="center"
+                android:text="@string/hour"/>
+        </LinearLayout>
 
-                </LinearLayout>
-
-
-
-
-        <Button
-            android:id="@+id/bt_nu_rotation_time"
-            style="@style/ButtonForm"
-            android:layout_marginTop="24dp"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
             android:layout_marginBottom="3dp"
-            android:layout_marginEnd="1dp"
-            android:layout_marginRight="1dp"
-            android:layout_gravity="end"
-            android:text="@string/add"/>
+            android:gravity="end"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/bt_cancel_rotation_time"
+                style="@style/ButtonForm"
+                android:layout_marginEnd="10dp"
+                android:layout_gravity="end"
+                android:background="@drawable/bt_cancel_bg"
+                android:text="@string/cancel"/>
+
+            <Button
+                android:id="@+id/bt_nu_rotation_time"
+                style="@style/ButtonForm"
+                android:layout_marginEnd="1dp"
+                android:layout_gravity="end"
+                android:text="@string/add_rotation_time"/>
+        </LinearLayout>
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

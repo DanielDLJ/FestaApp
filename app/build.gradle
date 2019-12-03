@@ -62,6 +62,13 @@ dependencies {
 
     /* Máscara EditText API */
     implementation 'com.github.santalu:mask-edittext:1.1.1'
+
+
+    /* API - Requisição server */
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.squareup.retrofit2:retrofit:2.6.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.0.1'
 }
 
 androidExtensions {

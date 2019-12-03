@@ -1,32 +1,31 @@
-package br.com.danieldlj.festaapp.ui.post
+package br.com.danieldlj.festaapp.ui.invite.NotStudent
 
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import br.com.danieldlj.festaapp.FormFragment
 import br.com.danieldlj.festaapp.MainActivity
 import br.com.danieldlj.festaapp.R
 import br.com.danieldlj.festaapp.api.ApiClient
-import br.com.danieldlj.festaapp.domain.Post
+import br.com.danieldlj.festaapp.domain.Invite
 import br.com.danieldlj.festaapp.domain.ServerResponse
-import br.com.danieldlj.festaapp.uitl.*
-import kotlinx.android.synthetic.main.fragment_new_post.*
-import kotlinx.android.synthetic.main.fragment_new_rotation_time.*
+import br.com.danieldlj.festaapp.uitl.isValidString
+import br.com.danieldlj.festaapp.uitl.validate
+import kotlinx.android.synthetic.main.fragment_new_invite_not_student.*
 import kotlinx.android.synthetic.main.proxy_screen.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class FormUpdatePostFragment : FormNewPostFragment() {
+class FormUpdateNotStudentInviteFragment : FormNewNotStudentInviteFragment() {
 
-    override fun getLayoutResourceID() = R.layout.fragment_update_post
+
+    override fun getLayoutResourceID() = R.layout.fragment_update_invite_not_sudent
 
     override fun backEndFakeDelay() {
 
         //Atualizando a variavel post com os itens digitados no form
         getItens()
-        post.id = id!!
+
 
 
         blockFields( false )
@@ -36,7 +35,7 @@ class FormUpdatePostFragment : FormNewPostFragment() {
         val containerForm = fl_proxy_container.parent as ViewGroup
 
         //backEndFakeDelay(false, getString( R.string.invalid ))
-        val call: Call<ServerResponse> = ApiClient.getClient.updatePost(post)
+        val call: Call<ServerResponse> = ApiClient.getClient.updateInvite(invite)
         call.enqueue(object : Callback<ServerResponse> {
             override fun onResponse(call: Call<ServerResponse>?, response: Response<ServerResponse>?) {
                 val serverResponse = (response!!.body()!!)
@@ -63,38 +62,27 @@ class FormUpdatePostFragment : FormNewPostFragment() {
     }
 
     override fun isMainButtonSending( status: Boolean ){
-        bt_nu_post.text =
+        bt_nu_not_student.text =
             if( status )
-                getString( R.string.update_post_going )
+                getString( R.string.update_invite_going )
             else
-                getString( R.string.update_post )
+                getString( R.string.update_invite )
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle? ){
         super.onActivityCreated( savedInstanceState )
 
         updateFlFormToFullFreeScreen()
-        bt_nu_post.text = getString( R.string.update_post )
 
-        et_post_date.validate({
-            it.isValidDate() }, getString( R.string.invalid_date ))
+        et_not_student_name.validate({
+            it.isValidString() }, getString( R.string.invalid_invite_name ))
 
-        et_post_horary.validate({
-            it.isValidHour() }, getString( R.string.invalid_hour ))
+        bt_nu_not_student.text = getString( R.string.update_invite )
 
-
-        et_post_what.validate({
-            it.isValidString() }, getString( R.string.invalid_what ))
-        et_post_notice.validate({
-            it.isValidString() }, getString( R.string.invalid_notice ))
-        et_post_who.validate({
-            it.isValidString() }, getString( R.string.invalid_who ))
-
-
-        bt_nu_post.setOnClickListener{
+        bt_nu_not_student.setOnClickListener{
             mainAction()
         }
-        bt_cancel_post.setOnClickListener(View.OnClickListener {
+        bt_cancel_not_student.setOnClickListener(View.OnClickListener {
             (activity as MainActivity).onBackPressed()
             }
         )
@@ -103,15 +91,12 @@ class FormUpdatePostFragment : FormNewPostFragment() {
         fillForm()
     }
     private fun fillForm(){
-        post = arguments!!.getParcelable<Post>(Post.KEY)
-        id = post.id
-        post.id_party = (activity as MainActivity).user.party.id
-        et_post_what.setText( post.what )
-        et_post_notice.setText( post.notice )
-        et_post_date.setText( post.date.getDate() )
-        et_post_horary.setText( post.date.getTime() )
-        et_post_who.setText( post.who )
-        et_post_description.setText( post.description )
+        invite = arguments!!.getParcelable<Invite>(Invite.KEY)
+        et_not_student_name.setText( invite.name )
+        et_not_student_valor.setText(invite.valor.toString())
+        et_not_student_expected_sales.setText( invite.expectedSales.toString() )
+        txt_not_student_total.setText( invite.total.toString())
+
     }
 
 

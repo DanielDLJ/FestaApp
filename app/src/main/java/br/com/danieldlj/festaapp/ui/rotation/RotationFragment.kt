@@ -31,7 +31,6 @@ class RotationFragment : Fragment() {
     }
 
     private fun initItems(){
-
         val adapter = context?.let { RotationAdapter(this, RotationDataBase.getItems()) }
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(context)

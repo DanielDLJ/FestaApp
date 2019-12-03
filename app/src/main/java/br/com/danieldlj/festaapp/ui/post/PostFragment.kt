@@ -9,17 +9,17 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.danieldlj.festaapp.MainActivity
 import br.com.danieldlj.festaapp.R
-import br.com.danieldlj.festaapp.data.ListRepDataBase
-import br.com.danieldlj.festaapp.data.PostDataBase
-import br.com.danieldlj.festaapp.domain.Rotation
-import br.com.danieldlj.festaapp.ui.list_rep.RepublicAdapter
-import br.com.danieldlj.festaapp.ui.rotation.RotationTimeFragment
+import br.com.danieldlj.festaapp.api.ApiClient
+import br.com.danieldlj.festaapp.domain.Post
 import kotlinx.android.synthetic.main.fragment_post.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class PostFragment : Fragment() {
 
 
-
+    val posts = ArrayList<Post>()
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         return inflater
@@ -38,9 +38,26 @@ class PostFragment : Fragment() {
 
     private fun initItems(){
 
-        val adapter = context?.let { PostAdapter(this, PostDataBase.getItems()) }
+        val adapter = context?.let { PostAdapter(this, posts) }
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(context)
+        getData()
+    }
+
+    fun getData() {
+        println("list")
+        posts.clear()
+        val call: Call<List<Post>> = ApiClient.getClient.getAllPost((activity as MainActivity).user.party)
+        call.enqueue(object : Callback<List<Post>> {
+            override fun onResponse(call: Call<List<Post>>?, response: Response<List<Post>>?) {
+                posts.addAll(response!!.body()!!)
+                recyclerView.adapter?.notifyDataSetChanged()
+            }
+
+            override fun onFailure(call: Call<List<Post>>?, t: Throwable?) {
+                println("onFailure")
+            }
+        })
     }
 
     private fun addPost(){

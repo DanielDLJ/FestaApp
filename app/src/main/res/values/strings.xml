@@ -22,8 +22,12 @@
     <string name="update">Atualizar</string>
     <string name="cancel">Cancelar</string>
     <string name="invalid">Falhou, tente novamente.</string>
+    <string name="invalid_date">Data Inválida.</string>
+    <string name="invalid_hour">Hora Inválida.</string>
+    <string name="valid">Sucesso!</string>
     <string name="hour">20:00</string>
     <string name="money">R$ 300,00</string>
+    <string name="money_0">R$ 0,00</string>
 
 
     <!-- Menu -->
@@ -85,6 +89,11 @@
     <string name="update_post_going">Atualizando&#8230;</string>
     <string name="update_post">Atualizar post</string>
 
+
+    <string name="invalid_what">Mínimo de 4 caracteres.</string>
+    <string name="invalid_notice">Mínimo de 4 caracteres.</string>
+    <string name="invalid_who">Mínimo de 4 caracteres.</string>
+
     <!-- Image Picker API - Adição e sobreposição de String -->
     <string name="imagepicker_msg_no_images">Não há imagens na galeria.</string>
     <string name="imagepicker_gallery_activity">Galeria</string>
@@ -98,8 +107,12 @@
     <string name="time_to">até</string>
     <string name="time_start">Hora inicio.</string>
 
+
+    <string name="add_rotation_time">Adicionar escala</string>
     <string name="update_rotation_time_going">Atualizando&#8230;</string>
     <string name="update_rotation_time">Atualizar escala</string>
+
+    <string name="updating_rotation_time">Atualizando Escala.</string>
 
 
     <!-- LoginActivity -->
@@ -116,6 +129,7 @@
     <string name="create_my_account">Criar minha conta</string>
     <string name="privacy_policy">Políticas de privacidade</string>
     <string name="invalid_login">Dados de login inválidos.</string>
+    <string name="valid_login">Dados de login corretos.</string>
 
     <!-- ConnectDataActivity -->
     <string name="title_activity_config_connection_data">Conexão (login)</string>
@@ -197,11 +211,22 @@
     <string name="update_invite_going">Atualizando&#8230;</string>
     <string name="update_invite">Atualizar convite</string>
 
+    <string name="invite_fragment_valor">Valor</string>
+    <string name="invite_fragment_expected_sales">Expected Sales</string>
+    <string name="invite_fragment_total">Total:</string>
+
+
+    <string name="invalid_invite_name">Mínimo de 4 caracteres.</string>
+
         <!-- StudentFragment -->
         <string name="student_invite_fragment_tab_list">Alunos</string>
+        <string name="updating_invite_sutdent">Atualizando Convite Estudante.</string>
+
+
 
         <!-- NotStudentFragment -->
         <string name="not_student_invite_fragment_tab_list">Não Alunos</string>
+        <string name="updating_invite_not_sutdent">Atualizando Convite Não Estudante.</string>
 
 
     <!-- Dialog Password -->

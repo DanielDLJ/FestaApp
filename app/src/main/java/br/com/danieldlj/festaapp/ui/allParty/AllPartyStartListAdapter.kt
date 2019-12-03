@@ -14,8 +14,8 @@ import br.com.danieldlj.festaapp.domain.Party
 import com.squareup.picasso.Picasso
 
 
-class AllPartyListAdapter(private val context: Context,
-                          private val items: List<Party>?) : RecyclerView.Adapter<AllPartyListAdapter.AllPartyViewHolder>() {
+class AllPartyStartListAdapter(private val context: Context,
+                               private val items: List<Party>?) : RecyclerView.Adapter<AllPartyStartListAdapter.AllPartyViewHolder>() {
 
     override
     fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AllPartyViewHolder {
@@ -40,7 +40,7 @@ class AllPartyListAdapter(private val context: Context,
     }
 
     private fun onItemClicked(position: Int) {
-        (context as AllPartyActivity).leave(items?.get(position)!!)
+        (context as AllPartyStartActivity).leave(items?.get(position)!!)
     }
 
     override

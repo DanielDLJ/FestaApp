@@ -2,14 +2,15 @@ package br.com.danieldlj.festaapp.domain
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
+import java.util.*
 
 @Parcelize
 class Post(
-    val id: Int,
-    val what: String,
-    val notice: String,
+    var id: Int,
+    var id_party: Int,
+    var what: String,
+    var notice: String,
     var date: String,
-    var time: String,
     var who: String,
     var description: String,
     var done: Boolean): Parcelable {

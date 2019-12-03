@@ -19,20 +19,17 @@ class ListRepDataBase {
                     Resident(
                     1,
                     "Bernardo",
-                    "Bronha",
-                    false
-                ),
+                        false
+                     ),
                     Resident(
                         1,
-                        "Felipe",
                         "Rato",
                         false
                     ),
                     Resident(
                         1,
-                        "Pedro",
                         "Pikachu",
-                        true
+                        false
                     )
                 )
             ),
@@ -44,19 +41,16 @@ class ListRepDataBase {
                 listOf(
                     Resident(
                         1,
-                        "Victor",
                         "Dick",
-                        true
+                        false
                     ),
                     Resident(
                         1,
-                        "João",
                         "CS",
-                        true
+                        false
                     ),
                     Resident(
                         1,
-                        "Deivid Sá",
                         "Locutor",
                         false
                     )
@@ -70,21 +64,19 @@ class ListRepDataBase {
                 listOf(
                     Resident(
                         1,
-                        "Fernanda",
                         "Topper",
                         false
                     ),
                     Resident(
                         1,
-                        "Juliane",
                         "Bolera",
                         false
                     ),
                     Resident(
                         1,
-                        "Gabriele",
                         "Rússia",
                         false
+
                     )
                 )
 
